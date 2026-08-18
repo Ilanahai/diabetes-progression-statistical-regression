@@ -1,0 +1,125 @@
+{
+  "n_samples": 442,
+  "n_features": 10,
+  "features": [
+    "age",
+    "sex",
+    "bmi",
+    "bp",
+    "s1",
+    "s2",
+    "s3",
+    "s4",
+    "s5",
+    "s6"
+  ],
+  "correlation_with_target": {
+    "bmi": 0.5865,
+    "s5": 0.5659,
+    "bp": 0.4415,
+    "s4": 0.4305,
+    "s6": 0.3825,
+    "s1": 0.212,
+    "age": 0.1879,
+    "s2": 0.1741,
+    "sex": 0.0431,
+    "s3": -0.3948
+  },
+  "ols_r_squared": 0.5177,
+  "ols_adj_r_squared": 0.5066,
+  "ols_f_statistic": 46.2724,
+  "ols_f_pvalue": 3.828649038185173e-62,
+  "coefficient_table": {
+    "const": {
+      "coefficient": 152.1335,
+      "std_err": 2.5759,
+      "t_value": 59.0614,
+      "p_value": 0.0
+    },
+    "age": {
+      "coefficient": -10.0099,
+      "std_err": 59.7492,
+      "t_value": -0.1675,
+      "p_value": 0.867
+    },
+    "sex": {
+      "coefficient": -239.8156,
+      "std_err": 61.2223,
+      "t_value": -3.9171,
+      "p_value": 0.0001
+    },
+    "bmi": {
+      "coefficient": 519.8459,
+      "std_err": 66.5334,
+      "t_value": 7.8133,
+      "p_value": 0.0
+    },
+    "bp": {
+      "coefficient": 324.3846,
+      "std_err": 65.422,
+      "t_value": 4.9583,
+      "p_value": 0.0
+    },
+    "s1": {
+      "coefficient": -792.1756,
+      "std_err": 416.6799,
+      "t_value": -1.9012,
+      "p_value": 0.0579
+    },
+    "s2": {
+      "coefficient": 476.739,
+      "std_err": 339.0305,
+      "t_value": 1.4062,
+      "p_value": 0.1604
+    },
+    "s3": {
+      "coefficient": 101.0433,
+      "std_err": 212.5315,
+      "t_value": 0.4754,
+      "p_value": 0.6347
+    },
+    "s4": {
+      "coefficient": 177.0632,
+      "std_err": 161.4758,
+      "t_value": 1.0965,
+      "p_value": 0.2735
+    },
+    "s5": {
+      "coefficient": 751.2737,
+      "std_err": 171.9,
+      "t_value": 4.3704,
+      "p_value": 0.0
+    },
+    "s6": {
+      "coefficient": 67.6267,
+      "std_err": 65.9843,
+      "t_value": 1.0249,
+      "p_value": 0.306
+    }
+  },
+  "significant_predictors_p<0.05": [
+    "sex",
+    "bmi",
+    "bp",
+    "s5"
+  ],
+  "hypothesis_test_sex_effect": {
+    "null_hypothesis": "Sex has no effect on disease progression, controlling for other variables",
+    "p_value": 0.0001,
+    "conclusion": "Reject H0 (significant effect)"
+  },
+  "test_set_metrics": {
+    "rmse": 53.85,
+    "mae": 42.79,
+    "r_squared": 0.4526,
+    "n_test_samples": 89
+  },
+  "baseline_mean_rmse": 73.22,
+  "rmse_improvement_over_baseline_pct": 26.5,
+  "residual_normality_test": {
+    "test": "Shapiro-Wilk",
+    "statistic": 0.9927,
+    "p_value": 0.9066,
+    "residuals_approx_normal": true
+  }
+}
