@@ -1,27 +1,27 @@
-# A/B Testing: Landing Page Conversion Rate Experiment
+# Statistical Modeling: Predicting Diabetes Disease Progression
 
-Statistical significance analysis of a simulated A/B test (5,000 users per group) comparing a control landing page against a redesigned variant, using proper hypothesis testing rather than raw percentage comparison.
+Linear regression (OLS) project on scikit-learn's Diabetes dataset (442 patients, 10 baseline features) to identify statistically significant predictors of one-year disease progression and evaluate out-of-sample predictive accuracy.
 
 ## Key Results
-- **Control conversion rate:** 9.86% | **Variant conversion rate:** 11.18%
-- **Absolute lift:** +1.32 pts | **Relative lift:** +13.4%
-- **Two-proportion z-test:** z = 2.151, p = 0.0315 → statistically significant
-- **Chi-square test (cross-check):** χ² = 4.488, p = 0.0341 → confirms significance
-- **95% CI on lift:** [+0.12, +2.52] percentage points (excludes zero)
+- **Model fit:** R² = 0.518, Adjusted R² = 0.507, F(10,431) = 46.27, p < 0.001
+- **Significant predictors (p < 0.05):** BMI, blood pressure, sex, S5 serum measure
+- **Hypothesis test:** Sex has a statistically significant effect on disease progression even after controlling for other clinical markers (p = 0.0001)
+- **Test set performance:** RMSE = 53.85 (26.5% better than a naive mean-prediction baseline), MAE = 42.79, Test R² = 0.453
+- **Residual diagnostics:** Shapiro-Wilk p = 0.907 → residuals approximately normal, supporting linear model assumptions
 
 ## Methodology
-1. Simulate randomized controlled experiment data (Bernoulli conversion trials)
-2. Compute descriptive conversion rates and lift
-3. Two-proportion z-test for significance
-4. Chi-square test of independence as a cross-check
-5. 95% confidence interval on the lift
+1. Exploratory correlation analysis
+2. OLS regression with full statistical inference (statsmodels)
+3. Hypothesis testing on individual coefficients (α = 0.05)
+4. 80/20 train/test split, scikit-learn LinearRegression for predictive metrics
+5. Residual normality diagnostics
 
 ## Visualization
-![A/B test results](ab_test_charts.png)
+![Regression results](regression_charts.png)
 
 ## Tools
-Python, NumPy, pandas, SciPy, Matplotlib
+Python, pandas, NumPy, scikit-learn, statsmodels, SciPy, Matplotlib
 
 ## Files
-- `ab_test_analysis.py` — full analysis script
-- `ab_test_charts.png` — conversion rate + lift CI chart
+- `regression_analysis.py` — full analysis script
+- `regression_charts.png` — predicted vs. actual + correlation chart
