@@ -1,29 +1,27 @@
-# diabetes-progression-statistical-regression
-OLS regression + hypothesis testing on 442 patients to identify statistically significant predictors of diabetes progression (R²=0.52, p&lt;0.001)
-Linear regression (OLS) project on scikit-learn's Diabetes dataset (442 patients, 10 baseline features) to identify statistically significant predictors of one-year disease progression and evaluate out-of-sample predictive accuracy.
+# A/B Testing: Landing Page Conversion Rate Experiment
 
-**Key Results**
+Statistical significance analysis of a simulated A/B test (5,000 users per group) comparing a control landing page against a redesigned variant, using proper hypothesis testing rather than raw percentage comparison.
 
-**Model fit:** R² = 0.518, Adjusted R² = 0.507, F(10,431) = 46.27, p < 0.001
-Significant predictors (p < 0.05): BMI, blood pressure, sex, S5 serum measure
+## Key Results
+- **Control conversion rate:** 9.86% | **Variant conversion rate:** 11.18%
+- **Absolute lift:** +1.32 pts | **Relative lift:** +13.4%
+- **Two-proportion z-test:** z = 2.151, p = 0.0315 → statistically significant
+- **Chi-square test (cross-check):** χ² = 4.488, p = 0.0341 → confirms significance
+- **95% CI on lift:** [+0.12, +2.52] percentage points (excludes zero)
 
-**Hypothesis test:** Sex has a statistically significant effect on disease progression even after controlling for other clinical markers (p = 0.0001)
+## Methodology
+1. Simulate randomized controlled experiment data (Bernoulli conversion trials)
+2. Compute descriptive conversion rates and lift
+3. Two-proportion z-test for significance
+4. Chi-square test of independence as a cross-check
+5. 95% confidence interval on the lift
 
-**Test set performance:** RMSE = 53.85 (26.5% better than a naive mean-prediction baseline), MAE = 42.79, Test R² = 0.453
-**Residual diagnostics:** Shapiro-Wilk p = 0.907 → residuals approximately normal, supporting linear model assumptions
+## Visualization
+![A/B test results](ab_test_charts.png)
 
-**Methodology**
+## Tools
+Python, NumPy, pandas, SciPy, Matplotlib
 
-1.Exploratory correlation analysis
-
-2.OLS regression with full statistical inference (statsmodels)
-
-3.Hypothesis testing on individual coefficients (α = 0.05)
-
-4.80/20 train/test split, scikit-learn LinearRegression for predictive metrics
-
-5.Residual normality diagnostics
-
-**Tools**
-
-Python, pandas, NumPy, scikit-learn, statsmodels, SciPy, Matplotlib.
+## Files
+- `ab_test_analysis.py` — full analysis script
+- `ab_test_charts.png` — conversion rate + lift CI chart
